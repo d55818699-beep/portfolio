@@ -102,7 +102,7 @@
     }
 
     .screenshot-box {
-      height: 450px; /* fixed height */
+      height: 450px;
       overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: #0b5ed7 #e5e7eb;
@@ -197,7 +197,7 @@
     <h2>Featured Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <div class="screenshot-box">
+        <div class="screenshot-box auto-scroll">
           <img src="screencapture-193b7e32-5d12-4361-a07b-845becc326d5-00-30sz068d8sapk-worf-replit-dev-2025-07-25-20_31_56.png" alt="Project 1 Screenshot" />
         </div>
         <div class="project-info">
@@ -207,7 +207,7 @@
       </div>
 
       <div class="project-card">
-        <div class="screenshot-box">
+        <div class="screenshot-box auto-scroll">
           <img src="screencapture-d38413e4-687f-4e2d-8076-1255870289ad-00-107vl2scr6pcl-worf-replit-dev-2025-07-25-19_40_04.png" alt="Project 2 Screenshot" />
         </div>
         <div class="project-info">
@@ -217,7 +217,7 @@
       </div>
 
       <div class="project-card">
-        <div class="screenshot-box">
+        <div class="screenshot-box auto-scroll">
           <img src="screencapture-learnfromeve-2025-08-12-00_23_51.png" alt="Project 3 Screenshot" />
         </div>
         <div class="project-info">
@@ -238,5 +238,27 @@
   <footer>
     © 2025 FouzanCreations. All Rights Reserved.
   </footer>
+
+  <script>
+    // Auto-scroll effect for project screenshots
+    document.querySelectorAll(".auto-scroll").forEach((box) => {
+      let scrollAmount = 0;
+      let direction = 1; // 1 = down, -1 = up
+
+      setInterval(() => {
+        if (box.scrollHeight > box.clientHeight) {
+          scrollAmount += direction;
+          box.scrollTop = scrollAmount;
+
+          // Reverse direction at top/bottom
+          if (box.scrollTop + box.clientHeight >= box.scrollHeight) {
+            direction = -1;
+          } else if (box.scrollTop <= 0) {
+            direction = 1;
+          }
+        }
+      }, 40); // speed (lower = faster)
+    });
+  </script>
 </body>
 </html>
