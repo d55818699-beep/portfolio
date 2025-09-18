@@ -33,7 +33,7 @@
   <style>
     body { font-family: 'Inter', sans-serif; background:#0A0A0A; color:white; }
     .gradient-text { background: linear-gradient(90deg,#C22748,#22D3EE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .glass { backdrop-filter: blur(12px); background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); }
+    .glass { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); } /* 👈 backdrop blur removed */
     .btn-animated { background: linear-gradient(270deg,#C22748,#22D3EE); background-size:400% 400%; animation: gradientMove 6s ease infinite; }
     @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
     .blob { position:absolute; border-radius:50%; filter: blur(100px); opacity:0.5; animation: blobMove 20s infinite; }
@@ -51,6 +51,7 @@
     .device-screen::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); }
 
     /* Device mockups */
+    .macbook, .iphone { filter: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
     .macbook {
       width: 100%;
       border: 12px solid #222;
@@ -95,11 +96,12 @@
     }
     .project-box:hover { transform: scale(1.02); transition: 0.3s; }
 
-    /* Prevent blur on images */
-    .no-blur {
+    /* Forcefully clear images */
+    img.no-blur {
       filter: none !important;
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
+      opacity: 1 !important;
     }
   </style>
 </head>
@@ -159,7 +161,7 @@
           <h3 class="text-xl font-bold mb-3">Cabin Fairy</h3>
           <div class="macbook">
             <div class="device-screen">
-              <img src="https://i.postimg.cc/qM4ZtPpg/cabin-fairy-homepage.jpg" alt="Cabin Fairy" class="w-full no-blur">
+              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Cabin Fairy" class="w-full no-blur">
             </div>
           </div>
           <p class="mt-3 text-sm text-gray-300">Booking revamp → +38% bookings</p>
@@ -170,7 +172,7 @@
           <h3 class="text-xl font-bold mb-3">Car Reports</h3>
           <div class="macbook">
             <div class="device-screen">
-              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Car Reports" class="w-full no-blur">
+              <img src="https://i.postimg.cc/vHbT0T9d/car-reports-homepage.jpg" alt="Car Reports" class="w-full no-blur">
             </div>
           </div>
           <p class="mt-3 text-sm text-gray-300">Responsive portal → +52% sessions</p>
