@@ -6,6 +6,16 @@
   <title>FouzanCreations Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <style>
+    /* Extra polish */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f472b6;
+      border-radius: 9999px;
+    }
+  </style>
 </head>
 <body class="bg-gray-950 text-white font-sans">
 
@@ -25,33 +35,33 @@
       <h2 class="text-4xl font-bold text-center mb-12">✨ Featured Projects</h2>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Project Card -->
+        <!-- Project Card 1 -->
         <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition">
           <div class="h-72 overflow-y-scroll">
-            <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" 
-                 alt="Project Screenshot 1" class="w-full object-cover">
+            <img src="screencapture-193b7e32-5d12-4361-a07b-845becc326d5-00-30sz068d8sapk-worf-replit-dev-2025-07-25-20_31_56.png" 
+                 alt="Project Screenshot 1" class="w-full">
           </div>
           <div class="p-4">
             <h3 class="text-xl font-semibold">Luxury Real Estate Website</h3>
           </div>
         </div>
 
-        <!-- Project Card -->
+        <!-- Project Card 2 -->
         <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition">
           <div class="h-72 overflow-y-scroll">
             <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" 
-                 alt="Project Screenshot 2" class="w-full object-cover">
+                 alt="Project Screenshot 2" class="w-full">
           </div>
           <div class="p-4">
             <h3 class="text-xl font-semibold">Modern SaaS Landing Page</h3>
           </div>
         </div>
 
-        <!-- Project Card -->
+        <!-- Project Card 3 -->
         <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition">
           <div class="h-72 overflow-y-scroll">
-            <img src="screencapture-learnfromeve-2025-08-12-00_23_51.png" 
-                 alt="Project Screenshot 3" class="w-full object-cover">
+            <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" 
+                 alt="Project Screenshot 3" class="w-full">
           </div>
           <div class="p-4">
             <h3 class="text-xl font-semibold">Coaching & Courses Platform</h3>
@@ -74,8 +84,8 @@
     </div>
   </section>
 
+  <!-- GSAP Animations -->
   <script>
-    // Smooth intro animation
     gsap.from("h1", { opacity: 0, y: -40, duration: 1 });
     gsap.from("p", { opacity: 0, y: 20, duration: 1, delay: 0.3 });
     gsap.from("a", { opacity: 0, scale: 0.8, duration: 0.6, delay: 0.6, stagger: 0.2 });
