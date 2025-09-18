@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agency Portfolio — Premium Web Development</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN + quick config (easy brand color edit) -->
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0B5ED7',   /* change this to your brand color */
+              accent: '#C22748',
+              bg: '#F9FAFB'
+            },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP for smooth, lightweight animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    /* small extra polish */
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.70), rgba(255,255,255,0.55));
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body class="bg-bg text-gray-900 font-sans leading-relaxed antialiased">
+
+  <!-- NAV -->
+  <header class="fixed w-full top-0 left-0 z-40">
+    <nav class="max-w-6xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
+      <a href="#" class="text-xl font-extrabold tracking-tight">YourAgency<span class="text-primary">.</span></a>
+      <div class="hidden md:flex items-center gap-6 text-sm text-gray-700">
+        <a href="#work" class="hover:text-primary">Work</a>
+        <a href="#services" class="hover:text-primary">Services</a>
+        <a href="#process" class="hover:text-primary">Process</a>
+        <a href="#contact" class="hover:text-primary">Contact</a>
+        <a href="mailto:hello@youragency.com" class="ml-4 px-4 py-2 rounded-lg bg-primary text-white shadow-sm hover:brightness-95">Hire Us</a>
+      </div>
+      <button id="navToggle" class="md:hidden p-2 rounded-md border border-gray-200 bg-white">☰</button>
+    </nav>
+  </header>
+
+  <main class="pt-24">
+
+    <!-- HERO -->
+    <section class="max-w-6xl mx-auto px-6 md:px-8 pb-16">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="text-sm font-medium text-primary mb-4">Premium web development</p>
+          <h1 id="heroTitle" class="text-4xl md:text-5xl font-extrabold leading-tight">
+            We build <span class="bg-clip-text text-transparent" style="background:linear-gradient(90deg,#0B5ED7,#C22748)">websites that attract & convert</span>
+          </h1>
+          <p class="mt-6 text-gray-600 max-w-prose">
+            Clean design. Fast build. Measurable results. We design and develop premium websites for companies that expect more than "just a website".
+          </p>
+
+          <div class="mt-8 flex gap-4">
+            <a href="#work" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-white font-semibold shadow">View Work</a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-gray-200">Get in touch</a>
+          </div>
+
+          <div class="mt-8 flex items-center gap-4 text-sm text-gray-600">
+            <div class="flex items-center gap-2"><strong class="text-black">3</strong> months avg delivery</div>
+            <div class="flex items-center gap-2">•</div>
+            <div class="flex items-center gap-2">Trusted by small luxury brands</div>
+          </div>
+        </div>
+
+        <!-- Right: mockup -->
+        <div class="relative">
+          <div id="mockup" class="glass rounded-3xl p-6 shadow-xl">
+            <div class="rounded-lg overflow-hidden border border-gray-100">
+              <img id="mockImg" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project mockup" class="w-full object-cover h-64 md:h-80">
+            </div>
+            <div class="mt-4 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-semibold">Techno World — E-commerce</div>
+                <div class="text-xs text-gray-500">+140% revenue in 3 months</div>
+              </div>
+              <div class="text-xs text-gray-500">Case study</div>
+            </div>
+          </div>
+          <div class="absolute -right-6 -bottom-6 opacity-40 text-7xl select-none">●</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-white py-12">
+      <div class="max-w-6xl mx-auto px-6 md:px-8">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-2xl font-bold">Services — what we deliver</h2>
+          <p class="mt-3 text-gray-600">Design-first approach with reliable engineering. Everything you need to launch a premium web presence.</p>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <div class="p-6 border rounded-xl">
+            <div class="text-2xl mb-3">🎨</div>
+            <h3 class="font-semibold">Design</h3>
+            <p class="mt-2 text-sm text-gray-600">High-end UI, conversion-focused layouts, brand consistent visuals.</p>
+          </div>
+          <div class="p-6 border rounded-xl">
+            <div class="text-2xl mb-3">🛠️</div>
+            <h3 class="font-semibold">Development</h3>
+            <p class="mt-2 text-sm text-gray-600">Fast, responsive sites using modern stack — static, WordPress, or custom React.</p>
+          </div>
+          <div class="p-6 border rounded-xl">
+            <div class="text-2xl mb-3">📈</div>
+            <h3 class="font-semibold">Growth</h3>
+            <p class="mt-2 text-sm text-gray-600">Analytics, SEO basics, CRO improvements to turn visits into revenue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK / CASE STUDIES -->
+    <section id="work" class="py-16">
+      <div class="max-w-6xl mx-auto px-6 md:px-8">
+        <div class="flex items-center justify-between">
+          <h2 class="text-2xl font-bold">Selected Case Studies</h2>
+          <p class="text-sm text-gray-600">Short summary + key result</p>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <article class="border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full h-40 object-cover">
+            <div class="p-5">
+              <h3 class="font-semibold">Techno World — E-commerce</h3>
+              <p class="mt-2 text-sm text-gray-600">Redesigned product pages + checkout flow → 140% increase in revenue.</p>
+              <div class="mt-4 flex gap-2">
+                <button class="btn-case px-4 py-2 rounded bg-primary text-white" data-title="Techno World" data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" data-desc="Full redesign + checkout optimization. Results: +140% revenue in 3 months.">View Case</button>
+                <a href="#" class="px-4 py-2 rounded border text-sm">Visit</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full h-40 object-cover">
+            <div class="p-5">
+              <h3 class="font-semibold">Cabin Fairy — Rentals</h3>
+              <p class="mt-2 text-sm text-gray-600">UX overhaul for booking flow → +38% bookings month-on-month.</p>
+              <div class="mt-4 flex gap-2">
+                <button class="btn-case px-4 py-2 rounded bg-primary text-white" data-title="Cabin Fairy" data-img="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop" data-desc="Booking UX, fast build, seamless calendar sync. Results: +38% bookings.">View Case</button>
+                <a href="#" class="px-4 py-2 rounded border text-sm">Visit</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="border rounded-xl overflow-hidden shadow-sm bg-white">
+            <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367f?q=80&w=1200&auto=format&fit=crop" alt="" class="w-full h-40 object-cover">
+            <div class="p-5">
+              <h3 class="font-semibold">Car Reports — Auto Portal</h3>
+              <p class="mt-2 text-sm text-gray-600">Responsive redesign, faster search → 52% more sessions.</p>
+              <div class="mt-4 flex gap-2">
+                <button class="btn-case px-4 py-2 rounded bg-primary text-white" data-title="Car Reports" data-img="https://images.unsplash.com/photo-1605902711622-cfb43c44367f?q=80&w=1200&auto=format&fit=crop" data-desc="Large listing site with optimized filtering + performance. Results: +52% sessions.">View Case</button>
+                <a href="#" class="px-4 py-2 rounded border text-sm">Visit</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal for case study -->
+    <div id="caseModal" class="fixed inset-0 z-50 hidden items-center justify-center p-6">
+      <div class="absolute inset-0 bg-black/50" id="modalClose"></div>
+      <div class="relative max-w-3xl w-full bg-white rounded-2xl p-6 shadow-2xl z-50">
+        <button id="modalX" class="absolute right-4 top-4 text-gray-600">✕</button>
+        <img id="modalImg" src="" alt="" class="w-full h-48 object-cover rounded-lg">
+        <h3 id="modalTitle" class="mt-4 text-xl font-bold"></h3>
+        <p id="modalDesc" class="mt-2 text-gray-600"></p>
+        <div class="mt-4 flex gap-3">
+          <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg">Talk about a similar project</a>
+          <a href="#" class="px-4 py-2 border rounded-lg">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCESS -->
+    <section id="process" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6 md:px-8">
+        <div class="text-center">
+          <h2 class="text-2xl font-bold">Our simple process</h2>
+          <p class="text-gray-600 mt-2">Transparent steps so clients know exactly what to expect.</p>
+        </div>
+
+        <div class="mt-8 flex flex-col md:flex-row gap-6 items-start justify-between">
+          <div class="flex-1 p-6 border rounded-xl text-center">
+            <div class="text-3xl mb-3">🔎</div>
+            <h4 class="font-semibold">Discover</h4>
+            <p class="mt-2 text-sm text-gray-600">We learn your goals and customers.</p>
+          </div>
+          <div class="flex-1 p-6 border rounded-xl text-center">
+            <div class="text-3xl mb-3">🎨</div>
+            <h4 class="font-semibold">Design</h4>
+            <p class="mt-2 text-sm text-gray-600">UI that reflects your brand & converts.</p>
+          </div>
+          <div class="flex-1 p-6 border rounded-xl text-center">
+            <div class="text-3xl mb-3">⚙️</div>
+            <h4 class="font-semibold">Build</h4>
+            <p class="mt-2 text-sm text-gray-600">Pixel-perfect dev and testing.</p>
+          </div>
+          <div class="flex-1 p-6 border rounded-xl text-center">
+            <div class="text-3xl mb-3">🚀</div>
+            <h4 class="font-semibold">Launch</h4>
+            <p class="mt-2 text-sm text-gray-600">SEO basics, analytics, and go-live.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-6 md:px-8">
+        <h2 class="text-2xl font-bold">What clients say</h2>
+        <div class="mt-6 relative">
+          <div id="testimonials" class="overflow-hidden rounded-xl border p-6 bg-white">
+            <div class="flex gap-6 transition-transform" style="transform: translateX(0%);">
+              <blockquote class="min-w-full">
+                <p class="text-lg font-medium">"They redesigned our store and revenue doubled within months."</p>
+                <footer class="mt-3 text-sm text-gray-600">— CEO, Techno World</footer>
+              </blockquote>
+              <blockquote class="min-w-full">
+                <p class="text-lg font-medium">"Professional, fast, and creative. Our bookings climbed fast."</p>
+                <footer class="mt-3 text-sm text-gray-600">— Founder, Cabin Fairy</footer>
+              </blockquote>
+              <blockquote class="min-w-full">
+                <p class="text-lg font-medium">"They understood our business goals and delivered exactly that."</p>
+                <footer class="mt-3 text-sm text-gray-600">— Product Head, Car Reports</footer>
+              </blockquote>
+            </div>
+          </div>
+          <div class="mt-4 flex justify-between">
+            <button id="prevTest" class="px-3 py-2 border rounded">Prev</button>
+            <button id="nextTest" class="px-3 py-2 border rounded">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA -->
+    <section id="contact" class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-6 md:px-8 text-center">
+        <h2 class="text-2xl font-bold">Start a premium project</h2>
+        <p class="text-gray-600 mt-2">Tell us about your goals and we'll prepare a clear plan and estimate.</p>
+
+        <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="mailto:hello@youragency.com?subject=New%20Project%20Inquiry" class="px-6 py-3 rounded-lg bg-primary text-white">Email Us</a>
+          <a href="https://wa.me/0000000000" class="px-6 py-3 rounded-lg border">WhatsApp</a>
+        </div>
+
+        <p class="mt-4 text-xs text-gray-500">Prefer an offline PDF? Download a short portfolio PDF and send it in meetings.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-bg">
+      <div class="max-w-6xl mx-auto px-6 md:px-8 text-center text-sm text-gray-600">
+        © <span id="year"></span> YourAgency — Premium websites · <a href="#" class="text-primary">Privacy</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SCRIPTS: Interactions, modal, carousel, GSAP -->
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // GSAP hero entrance
+    gsap.from("#heroTitle", { duration: 0.9, y: 20, opacity: 0, ease: "power3.out" });
+
+    // Case study modal
+    const caseBtns = document.querySelectorAll('.btn-case');
+    const caseModal = document.getElementById('caseModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalClose = document.getElementById('modalClose');
+    const modalX = document.getElementById('modalX');
+
+    caseBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modalImg.src = btn.dataset.img;
+        modalTitle.textContent = btn.dataset.title;
+        modalDesc.textContent = btn.dataset.desc;
+        caseModal.classList.remove('hidden');
+        gsap.fromTo(caseModal.querySelector('[role="dialog"]') || caseModal, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+      });
+    });
+
+    [modalClose, modalX].forEach(el => el && el.addEventListener('click', () => caseModal.classList.add('hidden')));
+
+    // Testimonials simple carousel
+    (function(){
+      const container = document.querySelector('#testimonials > div');
+      const items = container.children;
+      let index = 0;
+      function show(i){ container.style.transform = `translateX(-${i*100}%)`; }
+      document.getElementById('prevTest').addEventListener('click', ()=> { index = Math.max(0, index-1); show(index); });
+      document.getElementById('nextTest').addEventListener('click', ()=> { index = Math.min(items.length-1, index+1); show(index); });
+    })();
+
+    // Mobile nav toggle (simple)
+    const navToggle = document.getElementById('navToggle');
+    navToggle.addEventListener('click', () => {
+      const nav = document.querySelector('header nav div.md\\:flex');
+      // fallback: just toggle mobile menu by inserting an alert for tiny screens
+      alert('For quick demo: use the top links on desktop. To enable mobile menu, edit index.html nav markup.');
+    });
+
+    // Simple improvement tip: replace placeholder images with your project screenshots.
+  </script>
+</body>
+</html>
