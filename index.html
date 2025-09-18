@@ -2,247 +2,241 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FouzanCreations — Futuristic Web Experiences</title>
-
-  <!-- Fonts & Tailwind -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: "#C22748",
-            bg: "#0A0A0A",
-            accent: "#22D3EE"
-          },
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            futuristic: ["Space Grotesk", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FouzanCreations - Portfolio</title>
   <style>
-    body { font-family: 'Inter', sans-serif; background:#0A0A0A; color:white; }
-    .gradient-text { background: linear-gradient(90deg,#C22748,#22D3EE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .glass { backdrop-filter: blur(12px); background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); }
-    .btn-animated { background: linear-gradient(270deg,#C22748,#22D3EE); background-size:400% 400%; animation: gradientMove 6s ease infinite; }
-    @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-    .blob { position:absolute; border-radius:50%; filter: blur(100px); opacity:0.5; animation: blobMove 20s infinite; }
-    @keyframes blobMove { 0%,100%{transform:translate(0,0);} 50%{transform:translate(50px,-50px);} }
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #111827;
+    }
 
-    /* Scrollable frame inside device */
-    .device-screen {
-      height: 450px;
+    header {
+      background: #0b5ed7;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    header nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #0b5ed7, #228be6);
+      color: #fff;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta {
+      display: inline-block;
+      background: #fff;
+      color: #0b5ed7;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta:hover {
+      background: #228be6;
+      color: #fff;
+    }
+
+    /* Featured Projects */
+    .projects {
+      padding: 5rem 2rem;
+      background: #fff;
+    }
+
+    .projects h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #0b5ed7;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #f9fafb;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .screenshot-box {
+      height: 450px; /* fixed height */
       overflow-y: auto;
       scrollbar-width: thin;
-      scrollbar-color: #C22748 #111;
+      scrollbar-color: #0b5ed7 #e5e7eb;
     }
-    .device-screen::-webkit-scrollbar { width: 6px; }
-    .device-screen::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#C22748,#22D3EE); border-radius: 8px; }
-    .device-screen::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); }
 
-    /* Device mockups */
-    .macbook {
+    .screenshot-box::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .screenshot-box::-webkit-scrollbar-thumb {
+      background: #0b5ed7;
+      border-radius: 4px;
+    }
+
+    .screenshot-box img {
       width: 100%;
-      border: 12px solid #222;
-      border-bottom: 50px solid #222;
-      border-radius: 12px;
-      background: black;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-      position: relative;
+      display: block;
     }
-    .macbook::after {
-      content: "";
-      position: absolute;
-      bottom: -38px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 6px;
-      border-radius: 6px;
-      background: #555;
+
+    .project-info {
+      padding: 1rem;
     }
-    .iphone {
-      width: 280px;
-      margin: auto;
-      border: 12px solid #222;
-      border-radius: 36px;
-      background: black;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      position: relative;
+
+    .project-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #111827;
     }
-    .iphone::after {
-      content: "";
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 6px;
-      border-radius: 6px;
-      background: #333;
+
+    .project-info p {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      color: #6b7280;
     }
-    .project-box:hover { transform: scale(1.02); transition: 0.3s; }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #0b5ed7, #228be6);
+      color: #fff;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      background: #fff;
+      color: #0b5ed7;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      background: #111827;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #111827;
+      color: #fff;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-
-  <!-- Floating blobs background -->
-  <div class="blob w-[400px] h-[400px] bg-primary top-[-100px] left-[-100px]"></div>
-  <div class="blob w-[300px] h-[300px] bg-accent bottom-[-100px] right-[-100px]"></div>
-
-  <!-- Navbar -->
-  <header class="fixed w-full top-0 z-50 glass">
-    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <div class="font-futuristic font-bold text-xl">Fouzan<span class="gradient-text">Creations</span></div>
-      <div class="hidden md:flex gap-8 font-medium">
-        <a href="#work" class="hover:text-accent">Work</a>
-        <a href="#services" class="hover:text-accent">Services</a>
-        <a href="#process" class="hover:text-accent">Process</a>
-        <a href="#contact" class="hover:text-accent">Contact</a>
-      </div>
+  <header>
+    <h1>FouzanCreations</h1>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="relative h-screen flex flex-col justify-center items-center text-center px-6">
-      <h1 class="text-5xl md:text-7xl font-extrabold font-futuristic leading-tight">
-        Building <span class="gradient-text">Next-Gen Websites</span><br/>
-        for Premium Brands
-      </h1>
-      <p class="mt-6 text-gray-300 max-w-2xl">At FouzanCreations, we blend design, code, and innovation to craft digital experiences that feel futuristic and unforgettable.</p>
-      <div class="mt-8 flex gap-4">
-        <a href="#work" class="px-6 py-3 rounded-lg text-white btn-animated shadow">See Our Work</a>
-        <a href="#contact" class="px-6 py-3 rounded-lg border border-gray-400 hover:bg-white hover:text-black">Start Project</a>
-      </div>
-    </section>
+  <section class="hero">
+    <h2>We Build Next-Gen Websites</h2>
+    <p>Creative, Engaging, and Future-Ready Designs</p>
+    <a href="#projects" class="cta">See Our Work</a>
+  </section>
 
-    <!-- Featured Projects -->
-    <section id="work" class="py-24 relative">
-      <h2 class="text-4xl font-bold text-center font-futuristic">🚀 Featured Projects</h2>
-      <p class="mt-4 text-center text-gray-400">Scroll inside devices to explore homepage previews</p>
-
-      <div class="mt-16 grid md:grid-cols-2 gap-16 max-w-6xl mx-auto px-6">
-        
-        <!-- Project 1 - MacBook -->
-        <div class="project-box">
-          <h3 class="text-xl font-bold mb-3">Techno World</h3>
-          <div class="macbook">
-            <div class="device-screen">
-              <img src="https://i.postimg.cc/9M8VXZyS/techno-world-homepage.jpg" alt="Techno World" class="w-full">
-            </div>
-          </div>
-          <p class="mt-3 text-sm text-gray-300">E-commerce redesign → +140% revenue</p>
+  <!-- Featured Projects -->
+  <section class="projects" id="projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="screenshot-box">
+          <img src="screencapture-193b7e32-5d12-4361-a07b-845becc326d5-00-30sz068d8sapk-worf-replit-dev-2025-07-25-20_31_56.png" alt="Project 1 Screenshot" />
         </div>
-
-        <!-- Project 2 - MacBook -->
-        <div class="project-box">
-          <h3 class="text-xl font-bold mb-3">Cabin Fairy</h3>
-          <div class="macbook">
-            <div class="device-screen">
-              <img src="https://i.postimg.cc/qM4ZtPpg/cabin-fairy-homepage.jpg" alt="Cabin Fairy" class="w-full">
-            </div>
-          </div>
-          <p class="mt-3 text-sm text-gray-300">Booking revamp → +38% bookings</p>
-        </div>
-
-        <!-- Project 3 - MacBook -->
-        <div class="project-box">
-          <h3 class="text-xl font-bold mb-3">Car Reports</h3>
-          <div class="macbook">
-            <div class="device-screen">
-              <img src="https://i.postimg.cc/vHbT0T9d/car-reports-homepage.jpg" alt="Car Reports" class="w-full">
-            </div>
-          </div>
-          <p class="mt-3 text-sm text-gray-300">Responsive portal → +52% sessions</p>
-        </div>
-
-        <!-- Project 4 - iPhone -->
-        <div class="project-box text-center">
-          <h3 class="text-xl font-bold mb-3">Crypto Exchange (Mobile)</h3>
-          <div class="iphone">
-            <div class="device-screen">
-              <img src="https://i.postimg.cc/hv0fwSyp/crypto-exchange-homepage.jpg" alt="Crypto Exchange Mobile" class="w-full">
-            </div>
-          </div>
-          <p class="mt-3 text-sm text-gray-300">Full mobile platform → $1M+ trades</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="py-20 text-center">
-      <h2 class="text-4xl font-bold font-futuristic">✨ Our Services</h2>
-      <div class="mt-12 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
-          <div class="text-5xl">🎨</div>
-          <h3 class="mt-4 font-semibold text-xl">Design</h3>
-          <p class="mt-2 text-gray-400">UI/UX crafted for futuristic appeal & conversions.</p>
-        </div>
-        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
-          <div class="text-5xl">⚙️</div>
-          <h3 class="mt-4 font-semibold text-xl">Development</h3>
-          <p class="mt-2 text-gray-400">Modern, responsive, lightning-fast builds.</p>
-        </div>
-        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
-          <div class="text-5xl">🚀</div>
-          <h3 class="mt-4 font-semibold text-xl">Growth</h3>
-          <p class="mt-2 text-gray-400">SEO, analytics & CRO for long-term results.</p>
+        <div class="project-info">
+          <h3>Marketing Agency Website</h3>
+          <p>A bold, conversion-focused agency homepage with interactive design.</p>
         </div>
       </div>
-    </section>
 
-    <!-- Process -->
-    <section id="process" class="max-w-7xl mx-auto py-20 px-6">
-      <h2 class="text-4xl font-bold text-center font-futuristic">⚡ Our Process</h2>
-      <div class="mt-12 grid md:grid-cols-4 gap-8 text-center">
-        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🔎 Discover</h4></div>
-        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🎨 Design</h4></div>
-        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">⚙️ Build</h4></div>
-        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🚀 Launch</h4></div>
+      <div class="project-card">
+        <div class="screenshot-box">
+          <img src="screencapture-d38413e4-687f-4e2d-8076-1255870289ad-00-107vl2scr6pcl-worf-replit-dev-2025-07-25-19_40_04.png" alt="Project 2 Screenshot" />
+        </div>
+        <div class="project-info">
+          <h3>Corporate Marketing Website</h3>
+          <p>Minimalist, premium design showcasing services and success stories.</p>
+        </div>
       </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-20 text-center">
-      <h2 class="text-4xl font-bold font-futuristic">📩 Let’s Collaborate</h2>
-      <p class="mt-2 text-gray-400">Ready to build your next-level website?</p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="mailto:fouzancreations@gmail.com" class="px-6 py-3 btn-animated text-white rounded-lg shadow">Email: fouzancreations@gmail.com</a>
-        <a href="https://wa.me/923243473424" class="px-6 py-3 border border-gray-500 rounded-lg hover:bg-white hover:text-black">WhatsApp: +92 324 3473424</a>
+      <div class="project-card">
+        <div class="screenshot-box">
+          <img src="screencapture-learnfromeve-2025-08-12-00_23_51.png" alt="Project 3 Screenshot" />
+        </div>
+        <div class="project-info">
+          <h3>Personal Branding Website</h3>
+          <p>Magical, vibrant brand experience built for coaching and lifestyle.</p>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <!-- Footer -->
-  <footer class="py-8 text-center text-gray-500 text-sm">
-    © <span id="year"></span> FouzanCreations. All rights reserved.
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Let’s Work Together 🚀</h2>
+    <a href="https://wa.me/923243473424" target="_blank">WhatsApp Us</a>
+    <a href="mailto:fouzancreations@gmail.com">Email Us</a>
+  </section>
+
+  <footer>
+    © 2025 FouzanCreations. All Rights Reserved.
   </footer>
-
-  <!-- Animations -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray("section").forEach((sec) => {
-      gsap.from(sec, {
-        opacity:0, y:50, duration:1, ease:"power2.out",
-        scrollTrigger: { trigger: sec, start:"top 85%" }
-      })
-    });
-  </script>
 </body>
 </html>
