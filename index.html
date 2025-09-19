@@ -1,186 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FouzanCreations Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: #f9fafb;
-      color: #111827;
-    }
+<section class="projects-section">
+  <h2>Featured Projects</h2>
+  <p>Scroll inside each box to explore full website screenshots of our projects.</p>
 
-    header {
-      text-align: center;
-      padding: 60px 20px 40px;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: #0B5ED7;
-    }
-    header p {
-      color: #6B7280;
-      font-size: 1.1rem;
-    }
+  <div class="projects-grid">
 
-    /* Featured Projects Section */
-    .projects-section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-    .projects-section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      color: #0B5ED7;
-    }
-    .projects-section p {
-      max-width: 600px;
-      margin: 0 auto 50px;
-      color: #374151;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .project-card {
-      background: rgba(255,255,255,0.8);
-      border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .project-image-box {
-      width: 100%;
-      height: 500px; /* fixed decent preview height */
-      overflow-y: scroll;
-      scrollbar-width: thin;
-      scrollbar-color: #0B5ED7 #E5E7EB;
-    }
-    .project-image-box::-webkit-scrollbar {
-      width: 6px;
-    }
-    .project-image-box::-webkit-scrollbar-track {
-      background: #E5E7EB;
-      border-radius: 6px;
-    }
-    .project-image-box::-webkit-scrollbar-thumb {
-      background: #0B5ED7;
-      border-radius: 6px;
-    }
-
-    .project-image-box img {
-      width: 100%;   /* fit width of box */
-      height: auto;  /* auto height so no blur */
-      display: block;
-    }
-
-    .project-info {
-      padding: 20px;
-      text-align: left;
-    }
-    .project-info h3 {
-      margin: 0 0 8px;
-      font-size: 1.3rem;
-      color: #111827;
-    }
-    .project-info p {
-      font-size: 0.95rem;
-      color: #6B7280;
-    }
-
-    /* Let's Collaborate Section */
-    .collab {
-      padding: 80px 20px;
-      background: #0B5ED7;
-      color: #fff;
-      text-align: center;
-    }
-    .collab h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-    }
-    .collab a {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 26px;
-      background: #fff;
-      color: #0B5ED7;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s, color 0.3s;
-    }
-    .collab a:hover {
-      background: #228BE6;
-      color: #fff;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>FouzanCreations</h1>
-    <p>We design modern, trendy, and engaging digital experiences</p>
-  </header>
-
-  <section class="projects-section">
-    <h2>Featured Projects</h2>
-    <p>Scroll inside each box to explore full website screenshots of our projects.</p>
-
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="project-image-box">
-          <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
-        </div>
-        <div class="project-info">
-          <h3>Learn From Eve</h3>
-          <p>A modern educational platform with engaging UI.</p>
-        </div>
+    <div class="project-card">
+      <div class="project-image-box">
+        <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
       </div>
-
-      <div class="project-card">
-        <div class="project-image-box">
-          <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
-        </div>
-        <div class="project-info">
-          <h3>Premium Website</h3>
-          <p>A high-converting professional website design.</p>
-        </div>
+      <div class="project-info">
+        <h3>Learn From Eve</h3>
+        <p>A modern educational platform with engaging UI.</p>
       </div>
-
-      <div class="project-card">
-        <div class="project-image-box">
-          <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
-        </div>
-        <div class="project-info">
-          <h3>Creative Agency</h3>
-          <p>A trendy agency website with scrollable showcase.</p>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <section class="collab">
-    <h2>Let's Collaborate</h2>
-    <a href="mailto:fouzancreations@gmail.com">fouzancreations@gmail.com</a>
-    <a href="https://wa.me/923243473424">WhatsApp: +92 3243473424</a>
-  </section>
+  </div>
+</section>
 
-</body>
-</html>
+<style>
+.projects-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.project-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  background: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-image-box {
+  height: 500px;             /* fixed preview height */
+  overflow-y: auto;          /* scroll vertically */
+  overflow-x: hidden;        /* no horizontal scroll */
+  border-bottom: 1px solid #E5E7EB;
+}
+
+/* Scrollbar styling */
+.project-image-box::-webkit-scrollbar {
+  width: 6px;
+}
+.project-image-box::-webkit-scrollbar-thumb {
+  background: #0B5ED7;
+  border-radius: 6px;
+}
+.project-image-box::-webkit-scrollbar-track {
+  background: #E5E7EB;
+}
+
+.project-image-box img {
+  display: block;
+  max-width: none;   /* prevent auto shrink */
+  width: auto;       /* keep original width */
+  height: auto;      /* keep original height */
+}
+.project-info {
+  padding: 20px;
+}
+</style>
