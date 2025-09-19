@@ -38,23 +38,25 @@
     @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
     /* Scrollable frame inside device */
-    .device-screen {
-      height: 450px;
-      overflow-y: auto;
+    .device-screen-auto {
+      display: inline-block;
+      max-height: 450px;    /* Box height fix */
+      overflow-y: auto;     /* Scroll enable */
+      overflow-x: hidden;   /* Horizontal scroll off */
       scrollbar-width: thin;
       scrollbar-color: #C22748 #111;
     }
-    .device-screen::-webkit-scrollbar { width: 6px; }
-    .device-screen::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#C22748,#22D3EE); border-radius: 8px; }
-    .device-screen::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); }
+    .device-screen-auto::-webkit-scrollbar { width: 6px; }
+    .device-screen-auto::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#C22748,#22D3EE); border-radius: 8px; }
+    .device-screen-auto::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); }
 
-    /* Make images sharp */
-    .device-screen img {
-      max-width: 100%;
-      height: auto;
+    .natural-img {
       display: block;
-      image-rendering: -webkit-optimize-contrast;
+      width: auto;          /* No stretching */
+      height: auto;
+      max-width: 100%;      /* Fit inside mockup */
       image-rendering: crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
     }
 
     /* Device mockups */
@@ -67,6 +69,7 @@
       overflow: hidden;
       box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       position: relative;
+      text-align: center;
     }
     .macbook::after {
       content: "";
@@ -88,6 +91,7 @@
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(0,0,0,0.5);
       position: relative;
+      text-align: center;
     }
     .iphone::after {
       content: "";
@@ -143,8 +147,8 @@
         <div class="project-box">
           <h3 class="text-xl font-bold mb-3">Techno World</h3>
           <div class="macbook">
-            <div class="device-screen">
-              <img src="https://i.postimg.cc/7LHSX3HT/screencapture-193b7e32-5d12-4361-a07b-845becc326d5-00-30sz068d8sapk-worf-replit-dev-2025-07-25-20-31.png" alt="Techno World">
+            <div class="device-screen-auto">
+              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Techno World" class="natural-img">
             </div>
           </div>
           <p class="mt-3 text-sm text-gray-300">E-commerce redesign → +140% revenue</p>
@@ -154,8 +158,8 @@
         <div class="project-box">
           <h3 class="text-xl font-bold mb-3">Cabin Fairy</h3>
           <div class="macbook">
-            <div class="device-screen">
-              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Cabin Fairy">
+            <div class="device-screen-auto">
+              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Cabin Fairy" class="natural-img">
             </div>
           </div>
           <p class="mt-3 text-sm text-gray-300">Booking revamp → +38% bookings</p>
@@ -165,8 +169,8 @@
         <div class="project-box">
           <h3 class="text-xl font-bold mb-3">Car Reports</h3>
           <div class="macbook">
-            <div class="device-screen">
-              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Car Reports">
+            <div class="device-screen-auto">
+              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Car Reports" class="natural-img">
             </div>
           </div>
           <p class="mt-3 text-sm text-gray-300">Responsive portal → +52% sessions</p>
@@ -176,8 +180,8 @@
         <div class="project-box text-center">
           <h3 class="text-xl font-bold mb-3">Crypto Exchange (Mobile)</h3>
           <div class="iphone">
-            <div class="device-screen">
-              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Crypto Exchange Mobile">
+            <div class="device-screen-auto">
+              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Crypto Exchange Mobile" class="natural-img">
             </div>
           </div>
           <p class="mt-3 text-sm text-gray-300">Full mobile platform → $1M+ trades</p>
@@ -249,4 +253,3 @@
   </script>
 </body>
 </html>
-
