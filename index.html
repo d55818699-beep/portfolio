@@ -2,254 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FouzanCreations — Futuristic Web Experiences</title>
-
-  <!-- Fonts & Tailwind -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: "#C22748",
-            bg: "#0A0A0A",
-            accent: "#22D3EE"
-          },
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            futuristic: ["Space Grotesk", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FouzanCreations Portfolio</title>
   <style>
-    body { font-family: 'Inter', sans-serif; background:#0A0A0A; color:white; }
-    .gradient-text { background: linear-gradient(90deg,#C22748,#22D3EE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .glass { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); }
-    .btn-animated { background: linear-gradient(270deg,#C22748,#22D3EE); background-size:400% 400%; animation: gradientMove 6s ease infinite; }
-    @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-
-    /* Scrollable frame inside device */
-    .device-screen-auto {
-      display: inline-block;
-      max-height: 450px;    /* Box height fix */
-      overflow-y: auto;     /* Scroll enable */
-      overflow-x: hidden;   /* Horizontal scroll off */
-      scrollbar-width: thin;
-      scrollbar-color: #C22748 #111;
-    }
-    .device-screen-auto::-webkit-scrollbar { width: 6px; }
-    .device-screen-auto::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#C22748,#22D3EE); border-radius: 8px; }
-    .device-screen-auto::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); }
-
-    .natural-img {
-      display: block;
-      width: auto;          /* No stretching */
-      height: auto;
-      max-width: 100%;      /* Fit inside mockup */
-      image-rendering: crisp-edges;
-      image-rendering: -webkit-optimize-contrast;
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f9fafb;
+      color: #111827;
     }
 
-    /* Device mockups */
-    .macbook {
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      color: #0B5ED7;
+    }
+    header p {
+      color: #6B7280;
+      font-size: 1.1rem;
+    }
+
+    /* Featured Projects Section */
+    .projects-section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .projects-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #0B5ED7;
+    }
+    .projects-section p {
+      max-width: 600px;
+      margin: 0 auto 50px;
+      color: #374151;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.8);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-image-box {
       width: 100%;
-      border: 12px solid #222;
-      border-bottom: 50px solid #222;
+      height: 500px; /* fixed decent preview height */
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: #0B5ED7 #E5E7EB;
+    }
+    .project-image-box::-webkit-scrollbar {
+      width: 6px;
+    }
+    .project-image-box::-webkit-scrollbar-track {
+      background: #E5E7EB;
+      border-radius: 6px;
+    }
+    .project-image-box::-webkit-scrollbar-thumb {
+      background: #0B5ED7;
+      border-radius: 6px;
+    }
+
+    .project-image-box img {
+      width: 100%;   /* fit width of box */
+      height: auto;  /* auto height so no blur */
+      display: block;
+    }
+
+    .project-info {
+      padding: 20px;
+      text-align: left;
+    }
+    .project-info h3 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+      color: #111827;
+    }
+    .project-info p {
+      font-size: 0.95rem;
+      color: #6B7280;
+    }
+
+    /* Let's Collaborate Section */
+    .collab {
+      padding: 80px 20px;
+      background: #0B5ED7;
+      color: #fff;
+      text-align: center;
+    }
+    .collab h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    .collab a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 26px;
+      background: #fff;
+      color: #0B5ED7;
       border-radius: 12px;
-      background: black;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-      position: relative;
-      text-align: center;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
     }
-    .macbook::after {
-      content: "";
-      position: absolute;
-      bottom: -38px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 6px;
-      border-radius: 6px;
-      background: #555;
+    .collab a:hover {
+      background: #228BE6;
+      color: #fff;
     }
-    .iphone {
-      width: 280px;
-      margin: auto;
-      border: 12px solid #222;
-      border-radius: 36px;
-      background: black;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      position: relative;
-      text-align: center;
-    }
-    .iphone::after {
-      content: "";
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 6px;
-      border-radius: 6px;
-      background: #333;
-    }
-    .project-box:hover { transform: scale(1.02); transition: 0.3s; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="fixed w-full top-0 z-50 glass">
-    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <div class="font-futuristic font-bold text-xl">Fouzan<span class="gradient-text">Creations</span></div>
-      <div class="hidden md:flex gap-8 font-medium">
-        <a href="#work" class="hover:text-accent">Work</a>
-        <a href="#services" class="hover:text-accent">Services</a>
-        <a href="#process" class="hover:text-accent">Process</a>
-        <a href="#contact" class="hover:text-accent">Contact</a>
-      </div>
-    </nav>
+  <header>
+    <h1>FouzanCreations</h1>
+    <p>We design modern, trendy, and engaging digital experiences</p>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="relative h-screen flex flex-col justify-center items-center text-center px-6">
-      <h1 class="text-5xl md:text-7xl font-extrabold font-futuristic leading-tight">
-        Building <span class="gradient-text">Next-Gen Websites</span><br/>
-        for Premium Brands
-      </h1>
-      <p class="mt-6 text-gray-300 max-w-2xl">At FouzanCreations, we blend design, code, and innovation to craft digital experiences that feel futuristic and unforgettable.</p>
-      <div class="mt-8 flex gap-4">
-        <a href="#work" class="px-6 py-3 rounded-lg text-white btn-animated shadow">See Our Work</a>
-        <a href="#contact" class="px-6 py-3 rounded-lg border border-gray-400 hover:bg-white hover:text-black">Start Project</a>
-      </div>
-    </section>
+  <section class="projects-section">
+    <h2>Featured Projects</h2>
+    <p>Scroll inside each box to explore full website screenshots of our projects.</p>
 
-    <!-- Featured Projects -->
-    <section id="work" class="py-24 relative">
-      <h2 class="text-4xl font-bold text-center font-futuristic">🚀 Featured Projects</h2>
-      <p class="mt-4 text-center text-gray-400">Scroll inside devices to explore homepage previews</p>
+    <div class="projects-grid">
 
-      <div class="mt-16 grid md:grid-cols-2 gap-16 max-w-6xl mx-auto px-6">
-        
-        <!-- Project 1 - MacBook -->
-        <div class="project-box">
-          <h3 class="text-xl font-bold mb-3">Techno World</h3>
-          <div class="macbook">
-            <div class="device-screen-auto">
-              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Techno World" class="natural-img">
-            </div>
-          </div>
-          <p class="mt-3 text-sm text-gray-300">E-commerce redesign → +140% revenue</p>
+      <div class="project-card">
+        <div class="project-image-box">
+          <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
         </div>
-
-        <!-- Project 2 - MacBook -->
-        <div class="project-box">
-          <h3 class="text-xl font-bold mb-3">Cabin Fairy</h3>
-          <div class="macbook">
-            <div class="device-screen-auto">
-              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Cabin Fairy" class="natural-img">
-            </div>
-          </div>
-          <p class="mt-3 text-sm text-gray-300">Booking revamp → +38% bookings</p>
-        </div>
-
-        <!-- Project 3 - MacBook -->
-        <div class="project-box">
-          <h3 class="text-xl font-bold mb-3">Car Reports</h3>
-          <div class="macbook">
-            <div class="device-screen-auto">
-              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Car Reports" class="natural-img">
-            </div>
-          </div>
-          <p class="mt-3 text-sm text-gray-300">Responsive portal → +52% sessions</p>
-        </div>
-
-        <!-- Project 4 - iPhone -->
-        <div class="project-box text-center">
-          <h3 class="text-xl font-bold mb-3">Crypto Exchange (Mobile)</h3>
-          <div class="iphone">
-            <div class="device-screen-auto">
-              <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Crypto Exchange Mobile" class="natural-img">
-            </div>
-          </div>
-          <p class="mt-3 text-sm text-gray-300">Full mobile platform → $1M+ trades</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="py-20 text-center">
-      <h2 class="text-4xl font-bold font-futuristic">✨ Our Services</h2>
-      <div class="mt-12 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
-          <div class="text-5xl">🎨</div>
-          <h3 class="mt-4 font-semibold text-xl">Design</h3>
-          <p class="mt-2 text-gray-400">UI/UX crafted for futuristic appeal & conversions.</p>
-        </div>
-        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
-          <div class="text-5xl">⚙️</div>
-          <h3 class="mt-4 font-semibold text-xl">Development</h3>
-          <p class="mt-2 text-gray-400">Modern, responsive, lightning-fast builds.</p>
-        </div>
-        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
-          <div class="text-5xl">🚀</div>
-          <h3 class="mt-4 font-semibold text-xl">Growth</h3>
-          <p class="mt-2 text-gray-400">SEO, analytics & CRO for long-term results.</p>
+        <div class="project-info">
+          <h3>Learn From Eve</h3>
+          <p>A modern educational platform with engaging UI.</p>
         </div>
       </div>
-    </section>
 
-    <!-- Process -->
-    <section id="process" class="max-w-7xl mx-auto py-20 px-6">
-      <h2 class="text-4xl font-bold text-center font-futuristic">⚡ Our Process</h2>
-      <div class="mt-12 grid md:grid-cols-4 gap-8 text-center">
-        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🔎 Discover</h4></div>
-        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🎨 Design</h4></div>
-        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">⚙️ Build</h4></div>
-        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🚀 Launch</h4></div>
+      <div class="project-card">
+        <div class="project-image-box">
+          <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
+        </div>
+        <div class="project-info">
+          <h3>Premium Website</h3>
+          <p>A high-converting professional website design.</p>
+        </div>
       </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-20 text-center">
-      <h2 class="text-4xl font-bold font-futuristic">📩 Let’s Collaborate</h2>
-      <p class="mt-2 text-gray-400">Ready to build your next-level website?</p>
-      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="mailto:fouzancreations@gmail.com" class="px-6 py-3 btn-animated text-white rounded-lg shadow">Email: fouzancreations@gmail.com</a>
-        <a href="https://wa.me/923243473424" class="px-6 py-3 border border-gray-500 rounded-lg hover:bg-white hover:text-black">WhatsApp: +92 324 3473424</a>
+      <div class="project-card">
+        <div class="project-image-box">
+          <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
+        </div>
+        <div class="project-info">
+          <h3>Creative Agency</h3>
+          <p>A trendy agency website with scrollable showcase.</p>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="py-8 text-center text-gray-500 text-sm">
-    © <span id="year"></span> FouzanCreations. All rights reserved.
-  </footer>
+    </div>
+  </section>
 
-  <!-- Animations -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <section class="collab">
+    <h2>Let's Collaborate</h2>
+    <a href="mailto:fouzancreations@gmail.com">fouzancreations@gmail.com</a>
+    <a href="https://wa.me/923243473424">WhatsApp: +92 3243473424</a>
+  </section>
 
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray("section").forEach((sec) => {
-      gsap.from(sec, {
-        opacity:0, y:50, duration:1, ease:"power2.out",
-        scrollTrigger: { trigger: sec, start:"top 85%" }
-      })
-    });
-  </script>
 </body>
 </html>
