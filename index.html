@@ -1,22 +1,198 @@
-<section class="featured-projects">
-  <h2>Featured Projects</h2>
-  <div class="projects-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FouzanCreations — Futuristic Web Experiences</title>
 
-    <div class="project-card">
-      <h3>Project 1 — Landing Page</h3>
-      <div class="screenshot-box">
-        <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
+  <!-- Fonts & Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#C22748",
+            bg: "#0A0A0A",
+            accent: "#22D3EE"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            futuristic: ["Space Grotesk", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; background:#0A0A0A; color:white; }
+    .gradient-text { background: linear-gradient(90deg,#C22748,#22D3EE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .glass { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); }
+    .btn-animated { background: linear-gradient(270deg,#C22748,#22D3EE); background-size:400% 400%; animation: gradientMove 6s ease infinite; }
+    @keyframes gradientMove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+    /* Scrollable project box */
+    .project-box {
+      background: #111;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      transition: transform .3s ease;
+    }
+    .project-box:hover { transform: scale(1.02); }
+
+    .scroll-frame {
+      max-height: 500px; /* fixed height */
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #C22748 #111;
+    }
+    .scroll-frame::-webkit-scrollbar { width: 6px; }
+    .scroll-frame::-webkit-scrollbar-thumb { background: linear-gradient(180deg,#C22748,#22D3EE); border-radius: 8px; }
+    .scroll-frame::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="fixed w-full top-0 z-50 glass">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div class="font-futuristic font-bold text-xl">Fouzan<span class="gradient-text">Creations</span></div>
+      <div class="hidden md:flex gap-8 font-medium">
+        <a href="#work" class="hover:text-accent">Work</a>
+        <a href="#services" class="hover:text-accent">Services</a>
+        <a href="#process" class="hover:text-accent">Process</a>
+        <a href="#contact" class="hover:text-accent">Contact</a>
       </div>
-      <p>Modern, clean and conversion-focused design for a premium client.</p>
-    </div>
+    </nav>
+  </header>
 
-    <div class="project-card">
-      <h3>Project 2 — E-commerce</h3>
-      <div class="screenshot-box">
-        <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Project Screenshot">
+  <main>
+    <!-- Hero -->
+    <section class="relative h-screen flex flex-col justify-center items-center text-center px-6">
+      <h1 class="text-5xl md:text-7xl font-extrabold font-futuristic leading-tight">
+        Building <span class="gradient-text">Next-Gen Websites</span><br/>
+        for Premium Brands
+      </h1>
+      <p class="mt-6 text-gray-300 max-w-2xl">At FouzanCreations, we blend design, code, and innovation to craft digital experiences that feel futuristic and unforgettable.</p>
+      <div class="mt-8 flex gap-4">
+        <a href="#work" class="px-6 py-3 rounded-lg text-white btn-animated shadow">See Our Work</a>
+        <a href="#contact" class="px-6 py-3 rounded-lg border border-gray-400 hover:bg-white hover:text-black">Start Project</a>
       </div>
-      <p>Dynamic e-commerce layout with smooth animations and cart system.</p>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <!-- Featured Projects -->
+    <section id="work" class="py-24 relative">
+      <h2 class="text-4xl font-bold text-center font-futuristic">🚀 Featured Projects</h2>
+      <p class="mt-4 text-center text-gray-400">Scroll inside each preview (vertical only)</p>
+
+      <div class="mt-16 grid md:grid-cols-2 gap-16 max-w-6xl mx-auto px-6">
+        
+        <!-- Project 1 -->
+        <div class="project-box">
+          <h3 class="text-xl font-bold mb-3 px-4 pt-4">Techno World</h3>
+          <div class="scroll-frame">
+            <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Techno World" class="block mx-auto">
+          </div>
+          <p class="mt-3 text-sm text-gray-300 px-4 pb-4">E-commerce redesign → +140% revenue</p>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-box">
+          <h3 class="text-xl font-bold mb-3 px-4 pt-4">Cabin Fairy</h3>
+          <div class="scroll-frame">
+            <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Cabin Fairy" class="block mx-auto">
+          </div>
+          <p class="mt-3 text-sm text-gray-300 px-4 pb-4">Booking revamp → +38% bookings</p>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-box">
+          <h3 class="text-xl font-bold mb-3 px-4 pt-4">Car Reports</h3>
+          <div class="scroll-frame">
+            <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Car Reports" class="block mx-auto">
+          </div>
+          <p class="mt-3 text-sm text-gray-300 px-4 pb-4">Responsive portal → +52% sessions</p>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-box">
+          <h3 class="text-xl font-bold mb-3 px-4 pt-4">Crypto Exchange (Mobile)</h3>
+          <div class="scroll-frame">
+            <img src="https://i.postimg.cc/Z5n07wk3/screencapture-learnfromeve-2025-08-11-23-25-43.png" alt="Crypto Exchange Mobile" class="block mx-auto">
+          </div>
+          <p class="mt-3 text-sm text-gray-300 px-4 pb-4">Full mobile platform → $1M+ trades</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 text-center">
+      <h2 class="text-4xl font-bold font-futuristic">✨ Our Services</h2>
+      <div class="mt-12 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
+          <div class="text-5xl">🎨</div>
+          <h3 class="mt-4 font-semibold text-xl">Design</h3>
+          <p class="mt-2 text-gray-400">UI/UX crafted for futuristic appeal & conversions.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
+          <div class="text-5xl">⚙️</div>
+          <h3 class="mt-4 font-semibold text-xl">Development</h3>
+          <p class="mt-2 text-gray-400">Modern, responsive, lightning-fast builds.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl hover:shadow-xl transition">
+          <div class="text-5xl">🚀</div>
+          <h3 class="mt-4 font-semibold text-xl">Growth</h3>
+          <p class="mt-2 text-gray-400">SEO, analytics & CRO for long-term results.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="max-w-7xl mx-auto py-20 px-6">
+      <h2 class="text-4xl font-bold text-center font-futuristic">⚡ Our Process</h2>
+      <div class="mt-12 grid md:grid-cols-4 gap-8 text-center">
+        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🔎 Discover</h4></div>
+        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🎨 Design</h4></div>
+        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">⚙️ Build</h4></div>
+        <div class="glass p-6 rounded-xl"><h4 class="font-semibold mt-2">🚀 Launch</h4></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 text-center">
+      <h2 class="text-4xl font-bold font-futuristic">📩 Let’s Collaborate</h2>
+      <p class="mt-2 text-gray-400">Ready to build your next-level website?</p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:fouzancreations@gmail.com" class="px-6 py-3 btn-animated text-white rounded-lg shadow">Email: fouzancreations@gmail.com</a>
+        <a href="https://wa.me/923243473424" class="px-6 py-3 border border-gray-500 rounded-lg hover:bg-white hover:text-black">WhatsApp: +92 324 3473424</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-gray-500 text-sm">
+    © <span id="year"></span> FouzanCreations. All rights reserved.
+  </footer>
+
+  <!-- Animations -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray("section").forEach((sec) => {
+      gsap.from(sec, {
+        opacity:0, y:50, duration:1, ease:"power2.out",
+        scrollTrigger: { trigger: sec, start:"top 85%" }
+      })
+    });
+  </script>
+</body>
+</html>
